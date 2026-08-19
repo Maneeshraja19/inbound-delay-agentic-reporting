@@ -1,0 +1,17 @@
+# --- Secrets: never commit API keys ---
+.env
+
+# --- Raw/large data: not ours to redistribute, keeps repo small ---
+data/
+!data/.gitkeep
+
+# --- Python noise ---
+__pycache__/
+*.pyc
+.ipynb_checkpoints/
+venv/
+.venv/
+
+# --- OS/editor noise ---
+.DS_Store
+.vscode/
