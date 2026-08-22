@@ -22,7 +22,7 @@ An inbound logistics planning manager who currently spends hours each week manua
 - Real-time/live shipment tracking — this is a weekly-batch analysis tool, not a live ops system
 
 ## 4. Data sources
-- DataCo Smart Supply Chain dataset (Kaggle) — [link]
+- DataCo Smart Supply Chain dataset (Kaggle) — [https://www.kaggle.com/datasets/shashwatwork/dataco-smart-supply-chain-for-big-data-analysis]
 - Open-Meteo API — weather data joined on shipment date/region
 - `holidays` Python library — US holiday calendar joined on shipment date
 
