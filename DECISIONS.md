@@ -13,3 +13,5 @@ Format: `YYYY-MM-DD — decision — why`
 2025-08-17 — Excluded actual delivery date from model features — using it would leak the answer into the prediction (we only know it after the shipment is already late or not).
 
 2025-08-21 — Downloaded DataCo Smart Supply Chain dataset from Kaggle, placed in data/ (git-ignored) — this is the primary dataset for delay analysis; not committed to Git per data-hosting best practice.
+
+2025-08-24 — First look at dataset: confirmed it loads with latin-1 encoding, 180,519 rows and 53 columns. Noticed a 'Late_delivery_risk' column — likely target variable for Week 3's model. Logging encoding fix now so tomorrow's cleaning notebook starts from a known-working read.
