@@ -17,3 +17,5 @@ Format: `YYYY-MM-DD — decision — why`
 2025-08-24 — First look at dataset: confirmed it loads with latin-1 encoding, 180,519 rows and 53 columns. Noticed a 'Late_delivery_risk' column — likely target variable for Week 3's model. Logging encoding fix now so tomorrow's cleaning notebook starts from a known-working read.
 
 2025-08-25 — Converted order date and shipping date columns from text to real datetime type using pd.to_datetime(). Calculated actual_delay_days as (shipping date - order date). Result: min 0 days, max 6 days, mean 3.47 days, no negative values — confirms no shipped-before-ordered data errors. This will be compared against the 'Days for shipment (scheduled)' column to define what counts as "late."
+
+2025-08-29 — Confirmed zero duplicate rows in the dataset. Defined is_late as actual_delay_days > Days for shipment (scheduled). Result: 98,743 late (55%) vs 81,776 on-time (45%) — reasonably balanced, reducing class imbalance risk for Week 3 modeling. Cross-checked against the dataset's own Late_delivery_risk column: ~95% agreement (171,845/180,519 rows), validating this definition. The ~5% disagreement will be investigated later but isn't blocking.
