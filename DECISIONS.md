@@ -15,3 +15,5 @@ Format: `YYYY-MM-DD — decision — why`
 2025-08-21 — Downloaded DataCo Smart Supply Chain dataset from Kaggle, placed in data/ (git-ignored) — this is the primary dataset for delay analysis; not committed to Git per data-hosting best practice.
 
 2025-08-24 — First look at dataset: confirmed it loads with latin-1 encoding, 180,519 rows and 53 columns. Noticed a 'Late_delivery_risk' column — likely target variable for Week 3's model. Logging encoding fix now so tomorrow's cleaning notebook starts from a known-working read.
+
+2025-08-25 — Converted order date and shipping date columns from text to real datetime type using pd.to_datetime(). Calculated actual_delay_days as (shipping date - order date). Result: min 0 days, max 6 days, mean 3.47 days, no negative values — confirms no shipped-before-ordered data errors. This will be compared against the 'Days for shipment (scheduled)' column to define what counts as "late."
