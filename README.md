@@ -50,3 +50,8 @@ running log of trade-offs made along the way.
 "Built a shipment delay root-cause and risk-prediction system with an AI
 agent that auto-generates weekly ops reports, identifying top delay drivers
 and achieving [X] PR-AUC on a held-out test set.")*
+## Key findings
+- **Shipping mode is the strongest driver of delay.** First Class is late 100% of the time and Second Class ~80% of the time — not due to poor execution, but because the promised delivery window itself is unrealistic (e.g., First Class promises 1 day but actually takes ~2 days on average). Standard Class's promise roughly matches reality (~4 promised vs ~4 actual), making it the most honestly-scheduled option.
+- **Region is a weak driver.** Late rates range narrowly from ~51% to ~59% across all order regions — no single region stands out as a major outlier.
+- **Month/seasonality is a weak, inconclusive driver.** Late rates stay within a tight ~54.1%–55.5% band across the year, with a mild uptick toward year-end that isn't strong enough to confirm as a real seasonal effect.
+- **Overall takeaway:** the delivery *promise* itself — not geography or season — is the primary lever for reducing late-delivery rates in this dataset.
