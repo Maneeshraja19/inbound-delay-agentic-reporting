@@ -15,9 +15,10 @@
 4. Built an AI agent that turns the week's computed stats into a written report — it summarizes numbers, it does not calculate them
 
 ## Key findings
-*(Fill in with real numbers once Week 2-3 are done. This is the section
-recruiters actually read — be specific: "Late shipments cluster on X carrier
-with a Y% higher rate than average" beats "found some interesting patterns.")*
+- **Shipping mode is the strongest driver of delay.** First Class is late 100% of the time and Second Class ~80% of the time — not due to poor execution, but because the promised delivery window itself is unrealistic (e.g., First Class promises 1 day but actually takes ~2 days on average). Standard Class's promise roughly matches reality (~4 promised vs ~4 actual), making it the most honestly-scheduled option.
+- **Region is a weak driver.** Late rates range narrowly from ~51% to ~59% across all order regions — no single region stands out as a major outlier.
+- **Month/seasonality is a weak, inconclusive driver.** Late rates stay within a tight ~54.1%–55.5% band across the year, with a mild uptick toward year-end that isn't strong enough to confirm as a real seasonal effect.
+- **Overall takeaway:** the delivery *promise* itself — not geography or season — is the primary lever for reducing late-delivery rates in this dataset.
 
 ## Repo structure
 ```
