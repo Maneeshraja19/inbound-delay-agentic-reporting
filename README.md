@@ -6,7 +6,10 @@
 *(Fill in from docs/design.md Section 1 once written.)*
 
 ## Live dashboard
-*(Link goes here once published in Week 2.)*
+## Dashboard
+*(Live public sharing requires a paid Power BI license — screenshot below. The .pbix file is included in this repo under `dashboard/` and can be opened directly in Power BI Desktop.)*
+
+![Dashboard overview](dashboard/screenshots/dashboard-overview.png)
 
 ## Approach
 1. Cleaned and joined DataCo shipment data with weather (Open-Meteo) and US holiday data
