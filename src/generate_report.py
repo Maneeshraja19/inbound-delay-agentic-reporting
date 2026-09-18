@@ -16,10 +16,10 @@ model = genai.GenerativeModel("gemini-3.6-flash")
 
 # --- Pre-computed stats (from your notebooks — hardcoded here for this example run) ---
 stats = {
-    "overall_late_rate": 0.547,
+    "overall_late_rate": 0.512,
     "first_class_late_rate": 1.00,
-    "second_class_late_rate": 0.80,
-    "standard_class_late_rate": 0.40,
+    "second_class_late_rate": 0.76,
+    "standard_class_late_rate": 0.35,
     "same_day_late_rate": 0.00,
     "model_pr_auc": 0.843,
     "top_feature": "Days for shipment (scheduled)",
