@@ -8,3 +8,6 @@ holidays
 requests
 xgboost
 python-dotenv
+streamlit
+plotly
+google-generativeai
