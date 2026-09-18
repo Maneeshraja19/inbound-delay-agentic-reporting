@@ -2,7 +2,7 @@
 .env
 
 # --- Raw/large data: not ours to redistribute, keeps repo small ---
-data/
+data/*
 !data/.gitkeep
 !data/dashboard_data.csv
 
