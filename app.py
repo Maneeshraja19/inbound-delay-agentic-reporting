@@ -52,3 +52,52 @@ with col_b:
 st.divider()
 st.markdown("**Key takeaway:** The delivery *promise* itself — not geography or season — is the primary driver of late deliveries in this dataset.")
 st.markdown("[View full analysis on GitHub](https://github.com/Maneeshraja19/inbound-delay-agentic-reporting)")
+st.divider()
+st.header("🔮 Predict Delay Risk for a New Shipment")
+st.markdown("Enter shipment details below to get a live prediction from the trained model.")
+
+import joblib
+
+@st.cache_resource
+def load_model():
+    model = joblib.load("src/delay_model.pkl")
+    features = joblib.load("src/model_features.pkl")
+    return model, features
+
+model, feature_cols = load_model()
+
+col1, col2 = st.columns(2)
+
+with col1:
+    shipping_mode = st.selectbox("Shipping Mode", sorted(df['Shipping Mode'].unique()))
+    order_region = st.selectbox("Order Region", sorted(df['Order Region'].unique()))
+    order_country = st.selectbox("Order Country", sorted(df['Order Country'].unique()))
+
+with col2:
+    category_name = st.selectbox("Category Name", sorted(df['Category Name'].unique()))
+    scheduled_days = st.number_input("Days for Shipment (Scheduled)", min_value=0, max_value=10, value=4)
+    order_month = st.selectbox("Order Month", list(range(1, 13)))
+
+if st.button("Predict"):
+    # Build a single-row input matching the model's expected feature format
+    input_dict = {col: 0 for col in feature_cols}
+    input_dict['Days for shipment (scheduled)'] = scheduled_days
+    input_dict['order_month'] = order_month
+
+    mode_col = f"Shipping Mode_{shipping_mode}"
+    region_col = f"Order Region_{order_region}"
+    country_col = f"Order Country_{order_country}"
+    category_col = f"Category Name_{category_name}"
+
+    for col in [mode_col, region_col, country_col, category_col]:
+        if col in input_dict:
+            input_dict[col] = 1
+
+    input_df = pd.DataFrame([input_dict])[feature_cols]
+    prediction = model.predict(input_df)[0]
+    probability = model.predict_proba(input_df)[0][1]
+
+    if prediction == 1:
+        st.error(f"⚠️ Predicted: LATE (confidence: {probability:.1%})")
+    else:
+        st.success(f"✅ Predicted: ON TIME (confidence: {1-probability:.1%})")
