@@ -7,7 +7,9 @@
 
 ## Live dashboard
 ## Dashboard
-*(Live public sharing requires a paid Power BI license — screenshot below. The .pbix file is included in this repo under `dashboard/` and can be opened directly in Power BI Desktop.)*
+**[🔗 View the live interactive dashboard](https://inbound-delay-agentic-reporting-maneeshraja.streamlit.app/)**
+
+*(Built with Streamlit and deployed on Streamlit Community Cloud. A Power BI version is also included in this repo under `dashboard/` for anyone who wants to open it directly in Power BI Desktop.)*
 
 ![Dashboard overview](dashboard/screenshots/dashboard-overview.png)
 
